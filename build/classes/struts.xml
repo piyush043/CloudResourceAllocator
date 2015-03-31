@@ -1,0 +1,56 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="hibernate-default">
+		<action name="addUser" method="add" class="com.vaannila.web.UserAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="listUser" method="list" class="com.vaannila.web.UserAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		
+		<action name="openLoadBalancer" method="open" class="com.vaannila.web.loadBalancerAction">
+			<result name="success">/mainPage.jsp</result>
+		</action>
+		<action name="loadBalancerMain" method="allocate" class="com.vaannila.web.loadBalancerAction">
+			<result name="success">/output.jsp</result>
+		</action>
+		<action name="billingDashboard" method="billing" class="com.vaannila.web.loadBalancerAction">
+			<result name="success">/billingDashboard.jsp</result>
+		</action>
+		
+		<action name="resourceMonitor" method="resourceMonitor" class="com.vaannila.web.loadBalancerAction">
+			<result name="success">resourceMonitor.jsp</result>
+		</action>
+				
+		<action name="saveConfig" method="saveConfig" class="com.vaannila.web.loadBalancerAction">
+			<result type="stream">
+		           <param name="contentType">text/html</param>
+        		   <param name="inputName">inputStream</param>
+		    </result>
+		</action>
+		
+		<action name="runSimulation" method="runSimulation" class="com.vaannila.web.loadBalancerAction">
+			<result type="stream">
+		           <param name="contentType">text/html</param>
+        		   <param name="inputName">inputStream</param>
+		    </result>
+		</action>
+		
+		<action name="getComparisionChart" method="getComparisionChart" class="com.vaannila.web.loadBalancerAction">
+			<result type="stream">
+		           <param name="contentType">text/html</param>
+        		   <param name="inputName">inputStream</param>
+		    </result>
+		</action>
+		
+		<action name="getBillingChart" method="getBillingChart" class="com.vaannila.web.loadBalancerAction">
+			<result type="stream">
+		           <param name="contentType">text/html</param>
+        		   <param name="inputName">inputStream</param>
+		    </result>
+		</action>
+	</package>
+</struts>
